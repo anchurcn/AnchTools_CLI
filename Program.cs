@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 
 namespace AnchTools_CLI
 {
@@ -7,8 +8,18 @@ namespace AnchTools_CLI
     {
         static void Main(string[] args)
         {
-            var fileEnumerator=new FileEnumerator();
-            fileEnumerator.ShowEachDiskInfo();
+            //var fileEnumerator=new FileEnumerator();
+            //fileEnumerator.ShowEachDiskInfo();
+            WebClient webClient = new WebClient();
+            var msg=webClient.DownloadString("localhost:10000");
+            if (string.IsNullOrEmpty(msg))
+            {
+                Console.WriteLine("nothing here");
+            }
+            else
+            {
+                Console.WriteLine(msg);
+            }
             Console.WriteLine("press any key to continue");
             Console.ReadKey();
         }
