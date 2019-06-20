@@ -11,7 +11,7 @@ namespace AnchTools_CLI
             //var fileEnumerator=new FileEnumerator();
             //fileEnumerator.ShowEachDiskInfo();
             WebClient webClient = new WebClient();
-            var msg=webClient.DownloadString("localhost:10000");
+            var msg=webClient.DownloadString("https://www.baidu.com");
             if (string.IsNullOrEmpty(msg))
             {
                 Console.WriteLine("nothing here");
